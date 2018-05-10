@@ -1,0 +1,26 @@
+<html>
+    <head>
+       <title>Survey Form</title>
+       {% load static %}
+       <link rel="stylesheet" type="text/css" href="{% static 'survey_form_app/css/my_css.css' %}">
+       <style></style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="session">
+                <p>Thanks for submitting this form! You have submitted this form {{request.session.count}} times now.</p>
+            </div>
+            <div class="container">
+                <form action='/clear'>
+                    {% csrf_token %}
+                    <h5 class="header">Submitted Information</h5>
+                    <label>Your Name:<span>{{name}}</span></label><br>
+                    <label>Dojo Location:<span>{{dojo_location}}</span></label><br>
+                    <label> Favorite Language:<span>{{favorite_language}}</span></label><br>
+                    <label>Comment:<span>{{comment}}</span></label><br>
+                    <label><input type='submit' id="button" value='Go Back!'></label>
+                </form>
+            </div>
+        </div>
+    </body>
+</html
